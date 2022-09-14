@@ -31,7 +31,8 @@
 *.out
 *.app
 
-# Misc.
+# Manually added
 *.vcxproj
 *.filters
 *.user
+x64/**
