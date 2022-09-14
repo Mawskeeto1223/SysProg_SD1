@@ -32,7 +32,6 @@
 *.app
 
 # Manually added
-*.vcxproj
 *.filters
 *.user
 x64/**
