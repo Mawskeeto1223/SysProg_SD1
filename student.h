@@ -13,7 +13,7 @@ public:
     //konstruktoriai
     Student();
     Student(string, string, vector<int>, int);
-    Student(Student&);
+    Student(const Student&);
     //desktruktorius
     ~Student();
     //getteriai
@@ -22,6 +22,7 @@ public:
     const vector<int> getNd();
     const int getEgz();
     //metodai
+    Student& operator=(const Student&);
     void studEdit(string, string, vector<int>, int);
 };
 
@@ -37,11 +38,11 @@ Student::Student() {
     egz(0);
 }
 
-Student::Student(Student &temp) {
-    this->name(temp.getName());
-    this->surname(temp.getSurname());
-    this->nd(temp.getNd());
-    this->egz(temp.getEgz());
+Student::Student(const Student &temp) {
+    this->name(temp.name_);
+    this->surname(temp.surname_);
+    this->nd(temp.nd_);
+    this->egz(temp.egz_);
 }
 
 Student::Student(string y, string p, vector<int> a, int e) {
@@ -67,6 +68,16 @@ const vector<int> Student::getNd() {
 
 const int Student::getEgz() {
     return egz_;
+}
+
+Student& Student::operator=(const Student& kint) {
+    if (this != &kint) {
+        name_ = kint.name_;
+        surname_ = kint.surname_;
+        nd_ = kint.nd_;
+        egz_ = kint.egz_;
+    }
+    return *this;
 }
 
 void Student::studEdit(string y, string p, vector<int> a, int e) {
