@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
 using std::cout;
 using std::cin;

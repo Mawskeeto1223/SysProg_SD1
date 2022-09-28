@@ -27,6 +27,7 @@ int main()
         temp.resize(0);
         cout << "Ar vesite dar? (y/n): "; cin >> kl;
     }
+    system("cls");
 
     for(Student &laik: mas)
         cout << laik.getName() << " " << laik.getSurname() << " " << laik.getEgz() << "\n";
