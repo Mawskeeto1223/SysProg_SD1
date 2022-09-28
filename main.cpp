@@ -4,9 +4,9 @@
 int main()
 {
     vector<Student> mas;
-    cout << "Iveskite studentu skaiciu: ";
-    int n, m; char kl='y';
-    cin >> n; cout << "\n";
+    //cout << "Iveskite studentu skaiciu: ";
+    int /*n,*/ m; char kl = 'y';
+    //cin >> n; cout << "\n";
 
     string var, pav; vector<int> temp; int egz;
 
@@ -25,10 +25,12 @@ int main()
         mas.push_back(tempas);
         temp.clear();
         temp.resize(0);
+        cout << "----------------------------------------------\n";
         cout << "Ar vesite dar? (y/n): "; cin >> kl;
     }
     system("cls");
-
+    cout << "Vardas\t\tPavarde\t\tGalutinis (vid.)\n";
+    cout << "-------------------------------------------------\n";
     for(Student &laik: mas)
-        cout << laik.getName() << " " << laik.getSurname() << " " << laik.getEgz() << "\n";
+        cout << laik.getName() << "\t\t" << laik.getSurname() << "\t\t" << fixed << setprecision(2) << getAverage(laik.getNd()) << "\n";
 }

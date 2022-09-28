@@ -14,3 +14,4 @@ using std::fixed;
 using std::string;
 using std::vector;
 using std::sort;
+using std::accumulate;	//sudeda (sukaupia) visus elementus vektoriuje

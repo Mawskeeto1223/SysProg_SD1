@@ -1,4 +1,5 @@
 #pragma once
+
 class Student {
     string name_, surname_;
     vector <int> nd_;
@@ -85,4 +86,10 @@ void Student::studEdit(string y, string p, vector<int> a, int e) {
     surname(p);
     nd(a);
     egz(e);
+}
+
+template<typename T>        //vectoriaus sablonas T
+double getAverage(vector<T> const& v) {
+    return accumulate(v.begin(), v.end(), 0.0) / v.size();
+    // sudeda vektoriaus elementus nuo pradzios (v.begin) iki pabaigos (v.end) ir padalina is vektoriaus elemento kiekio (v.size)
 }
