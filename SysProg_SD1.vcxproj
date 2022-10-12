@@ -143,7 +143,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="func.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="reqlibs.h" />
   </ItemGroup>
