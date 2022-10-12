@@ -1,5 +1,4 @@
 #include "reqlibs.h"
-#include "func.h"
 #include "student.h"
 
 int main()

@@ -28,8 +28,8 @@ public:
     void studEdit(string, string, vector<int>, int);
 };
 
-void Student::name(std::string temp){name_=temp;}
-void Student::surname(std::string temp){surname_=temp;}
+void Student::name(string temp){name_=temp;}
+void Student::surname(string temp){surname_=temp;}
 void Student::nd(vector<int> temp){nd_=temp;}
 void Student::egz(int temp){egz_=temp;}
 
@@ -55,37 +55,3 @@ Student::Student(string y, string p, vector<int> a, int e) {
 }
 
 Student::~Student(){name_=""; surname_= ""; nd_.clear();}
-
-const string Student::getName() {
-    return name_;
-}
-
-const string Student::getSurname() {
-    return surname_;
-}
-
-const vector<int> Student::getNd() {
-    return nd_;
-}
-
-const int Student::getEgz() {
-    return egz_;
-}
-
-Student& Student::operator=(const Student& kint) {
-    if (this != &kint) {
-        name_ = kint.name_;
-        surname_ = kint.surname_;
-        nd_ = kint.nd_;
-        egz_ = kint.egz_;
-        median_ = kint.nd_;
-    }
-    return *this;
-}
-
-void Student::studEdit(string y, string p, vector<int> a, int e) {
-    name(y);
-    surname(p);
-    nd(a);
-    egz(e);
-}
