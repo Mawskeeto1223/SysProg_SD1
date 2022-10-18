@@ -27,6 +27,7 @@ using std::accumulate;	//sudeda (sukaupia) visus elementus vektoriuje
 using std::random_device;
 using std::default_random_engine;
 using std::uniform_int_distribution;
+using std::uniform_real_distribution;
 
 using std::ifstream;
 using std::ofstream;
