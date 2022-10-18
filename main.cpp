@@ -88,7 +88,7 @@ void generateList() {
     vector <string> name, surn, fname, mname, fsurn, msurn;
     bool gender;
     if (names.fail() || surnames.fail()) {
-        cout << "Nerasta vardu/pavardziu saraso! (truksta 'vardai.txt' arba 'pavardes.txt')\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+        cout << "Nerastas vardu/pavardziu sarasas! (truksta 'vardai.txt' arba 'pavardes.txt')\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
         int e = _getch();
         main();
     } else {
