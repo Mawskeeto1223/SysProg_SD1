@@ -34,9 +34,9 @@ int main()
         cout << "Ar vesite dar? (y/n): "; cin >> kl;
     }
     system("cls");
-    cout << "Vardas\t\tPavarde\t\tGalutinis (vid.) Galutinis (med.)\n";
-    cout << "--------------------------------------------------------------\n";
+    cout << setw(20) << left << "Vardas" << setw(25) << left << "Pavarde" << setw(30) << left << "Galutinis (vid.)" << setw(20) << left << "Galutinis (med.)\n";
+    cout << "--------------------------------------------------------------------------------------------\n";
     for (Student& laik : mas) {
-        cout << laik.getName() << "\t\t" << laik.getSurname() << "\t\t" << fixed << setprecision(2) << getAverage(laik.getNd()) << "\t\t  " << getMedian(laik.getNd()) << "\n";
+        cout << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
 }
