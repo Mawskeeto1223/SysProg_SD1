@@ -6,18 +6,19 @@ void createList();
 
 int main()
 {
-    int id;
-    int stn = 1000;
-    cout << "Pasirinkite norima veiksma:\n";
+    char id;
+    cout << "Pasirinkite norima veiksma nuspausdami tam tikra skaiciu:\n";
     cout << "1. Sudaryti studentu sarasa\n";
     cout << "2. Sugeneruoti atsitiktinius studentu sarasus\n";
+    cout << "\nSpauskit bet koki mygtuka, kad uzbaigti programos darba\n";
+    id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
 
-    cin >> id;
-
-    if (id == 1) {
+    if (id == '1') {
         createList();
-    } else if (id == 2) {
+    } else if (id == '2') {
         generateList();
+    } else {
+        cout << "Iseinama...\n";
     }
 }
 
@@ -66,5 +67,7 @@ void createList() {
 }
 
 void generateList() {
-
+    system("cls");
+    ofstream varg("sugeneruoti_vargsiukai.txt");
+    ofstream kiet("sugeneruoti_kietuoliai.txt");
 }

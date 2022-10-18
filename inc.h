@@ -8,6 +8,7 @@
 #include <numeric>
 #include <limits>
 #include <fstream>
+#include <conio.h> //_getch(); laukia iki kol vartotojas paspaus mygtuka, kad ivyktu kazkas.
 
 using std::cout;
 using std::cin;
