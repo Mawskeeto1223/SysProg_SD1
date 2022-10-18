@@ -19,3 +19,6 @@ using std::sort;
 using std::setw;
 using std::left;
 using std::accumulate;	//sudeda (sukaupia) visus elementus vektoriuje
+
+using std::ifstream;
+using std::ofstream;

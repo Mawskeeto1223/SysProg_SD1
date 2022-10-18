@@ -1,5 +1,5 @@
 #pragma once
-#include "reqlibs.h"
+#include "inc.h"
 
 class Student {
     string name_, surname_;
