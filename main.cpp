@@ -19,8 +19,12 @@ int main()
         while (true) {
             cin >> m;
             temp.push_back(m);
-            cout << "Ar vesite dar? (y/n): "; cin >> kl;
-            if (kl != 'y') break;
+            //cout << "Ar vesite dar? (y/n): "; cin >> kl;
+            if (!cin.good()) {
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                break;
+            }
         }
         Student tempas(var, pav, temp, egz);
         mas.push_back(tempas);

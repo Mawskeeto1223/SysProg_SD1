@@ -6,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <limits>
 
 using std::cout;
 using std::cin;
