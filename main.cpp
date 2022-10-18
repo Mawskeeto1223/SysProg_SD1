@@ -157,5 +157,7 @@ void generateList() {
             }
         }
     }
+    varg.close();
+    kiet.close();
     cout << "Baigta.\n";
 }
