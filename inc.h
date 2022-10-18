@@ -8,7 +8,8 @@
 #include <numeric>
 #include <limits>
 #include <fstream>
-#include <conio.h> //_getch(); laukia iki kol vartotojas paspaus mygtuka, kad ivyktu kazkas.
+#include <random>
+#include <conio.h> //_getch();
 
 using std::cout;
 using std::cin;
@@ -23,3 +24,4 @@ using std::accumulate;	//sudeda (sukaupia) visus elementus vektoriuje
 
 using std::ifstream;
 using std::ofstream;
+using std::ostream; //tik testavimui tikrinant vektoriu elementus

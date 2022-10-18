@@ -16,7 +16,7 @@ Stankeviciute 1
 Stankeviciene 1
 Paulauskas 0
 Paulauskaite 1
-Paulauskiene
+Paulauskiene 1
 Liutasirdis 0
 Radvila 0
 Radviliene 1

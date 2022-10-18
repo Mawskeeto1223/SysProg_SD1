@@ -35,4 +35,6 @@
 *.filters
 *.user
 surasytas_studentu_sarasas.txt
+sugeneruoti_vargsiukai.txt
+sugeneruoti_kietuoliai.txt
 x64/**

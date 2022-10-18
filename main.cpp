@@ -4,6 +4,15 @@
 void generateList();
 void createList();
 
+template <typename S>
+ostream& operator<<(ostream& os, const vector<S>& vector) {
+    //spausdinam vektoriu elementus su <<, skirtas testavimui.
+    for (auto element : vector) {
+        os << element << " ";
+    }
+    return os;
+}
+
 int main()
 {
     char id;
@@ -25,7 +34,7 @@ int main()
 void createList() {
     system("cls");
     vector<Student> mas;
-    ofstream studoutput("surasytas_studentu_sarasas.txt");
+    ofstream SOutput("surasytas_studentu_sarasas.txt");
 
     //cout << "Iveskite studentu skaiciu: ";
     int /*n,*/ m; char kl = 'y';
@@ -57,17 +66,49 @@ void createList() {
     }
     system("cls");
     cout << setw(20) << left << "Vardas" << setw(25) << left << "Pavarde" << setw(30) << left << "Galutinis (vid.)" << setw(20) << left << "Galutinis (med.)\n";
-    studoutput << setw(20) << left << "Vardas" << setw(25) << left << "Pavarde" << setw(30) << left << "Galutinis (vid.)" << setw(20) << left << "Galutinis (med.)\n";
+    SOutput << setw(20) << left << "Vardas" << setw(25) << left << "Pavarde" << setw(30) << left << "Galutinis (vid.)" << setw(20) << left << "Galutinis (med.)\n";
     cout << "--------------------------------------------------------------------------------------------\n";
-    studoutput << "--------------------------------------------------------------------------------------------\n";
+    SOutput << "--------------------------------------------------------------------------------------------\n";
     for (Student& laik : mas) {
         cout << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
-        studoutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
+        SOutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
+    SOutput.close();
 }
 
 void generateList() {
     system("cls");
+
+    ifstream names("vardai.txt");
+    ifstream surnames("pavardes.txt");
+    vector <string> name, surn, fname, mname, fsurn, msurn;
+    bool gender;
+
+    if (names.fail() || surnames.fail()) {
+        cout << "KLAIDA: Nerasta vardu saraso!";
+    } else {
+        string x, d;
+        while (names >> x >> gender) {
+            name.push_back(x);
+            if (gender == 0) {
+                mname.push_back(x);     //vyru vardai
+            }
+            else {
+                fname.push_back(x);     //moteru vardai
+            }
+        }
+        while (surnames >> d >> gender) {
+            surn.push_back(d);
+            if (gender == 0) {
+                msurn.push_back(d);     //vyriskos "pavardes"
+            }
+            else {
+                fsurn.push_back(d);     //moteriskos "pavardes"
+            }
+        }
+    }
+    //cout << mname;
+
     ofstream varg("sugeneruoti_vargsiukai.txt");
     ofstream kiet("sugeneruoti_kietuoliai.txt");
 }
