@@ -4,23 +4,25 @@
 void generateList();
 void createList();
 
+/*
 template <typename S>
 ostream& operator<<(ostream& os, const vector<S>& vector) {
-    //spausdinam vektoriu elementus su <<, skirtas testavimui.
+    //spausdinam vektoriu elementus su cout <<, skirtas testavimui.
     for (auto element : vector) {
         os << element << " ";
     }
     return os;
 }
+*/
 
 int main()
 {
-    char id;
+    system("cls");
     cout << "Pasirinkite norima veiksma nuspausdami tam tikra skaiciu:\n";
     cout << "1. Sudaryti studentu sarasa\n";
     cout << "2. Sugeneruoti atsitiktinius studentu sarasus\n";
-    cout << "\nSpauskit bet koki mygtuka, kad uzbaigti programos darba\n";
-    id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
+    cout << "\nSpustelekite bet koki klavisa, kad uzbaigti programos darba\n";
+    char id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
 
     if (id == '1') {
         createList();
@@ -76,8 +78,12 @@ void createList() {
     SOutput.close();
 }
 
+
+
 void generateList() {
     system("cls");
+
+    // overkomplikuotas sprendimas, pasitelkiantis "vaizdingus" vardus ir pavardes is 2 duomenu failu, vietoj Vardas1 Pavarde1.
 
     ifstream names("vardai.txt");
     ifstream surnames("pavardes.txt");
@@ -85,29 +91,47 @@ void generateList() {
     bool gender;
 
     if (names.fail() || surnames.fail()) {
-        cout << "KLAIDA: Nerasta vardu saraso!";
+        cout << "Nerasta vardu/pavardziu saraso! (truksta 'vardai.txt' arba 'pavardes.txt')\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+        int e = _getch();
+        main();
     } else {
         string x, d;
         while (names >> x >> gender) {
             name.push_back(x);
             if (gender == 0) {
-                mname.push_back(x);     //vyru vardai
-            }
-            else {
-                fname.push_back(x);     //moteru vardai
+                mname.push_back(x);     //vyru vardu vektorius
+            } else {
+                fname.push_back(x);     //moteru vardu vektorius
             }
         }
         while (surnames >> d >> gender) {
             surn.push_back(d);
             if (gender == 0) {
-                msurn.push_back(d);     //vyriskos "pavardes"
-            }
-            else {
-                fsurn.push_back(d);     //moteriskos "pavardes"
+                msurn.push_back(d);     //vyrisku "pavardziu" vektorius
+            } else {
+                fsurn.push_back(d);     //moterisku "pavardziu" vektorius
             }
         }
     }
-    //cout << mname;
+
+    for (int i = 0; i < 3; i++) {
+        std::random_device rd;
+        std::default_random_engine generator(rd()); // rd() duoda atsitiktini seed'a
+        std::uniform_int_distribution<int> distribution(0, 1);
+
+        std::shuffle(std::begin(mname), std::end(mname), generator);
+        std::shuffle(std::begin(msurn), std::end(msurn), generator);
+        std::shuffle(std::begin(fname), std::end(fname), generator);
+        std::shuffle(std::begin(fsurn), std::end(fsurn), generator);
+        int rand = distribution(generator);
+        if (rand == 0) {
+            for (size_t i = 0; i < 1; i += 2)
+                cout << mname[i] << " " << msurn[i] << '\n';
+        } else if (rand == 1) {
+            for (size_t i = 0; i < 1; i += 2)
+                cout << fname[i] << " " << fsurn[i] << '\n';
+        }
+    }
 
     ofstream varg("sugeneruoti_vargsiukai.txt");
     ofstream kiet("sugeneruoti_kietuoliai.txt");
