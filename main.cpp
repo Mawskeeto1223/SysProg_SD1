@@ -115,14 +115,14 @@ void generateList() {
     }
 
     for (int i = 0; i < 3; i++) {
-        std::random_device rd;
-        std::default_random_engine generator(rd()); // rd() duoda atsitiktini seed'a
-        std::uniform_int_distribution<int> distribution(0, 1);
+        random_device rd;
+        default_random_engine generator(rd()); // rd() duoda atsitiktini seed'a
+        uniform_int_distribution<int> distribution(0, 1);
 
-        std::shuffle(std::begin(mname), std::end(mname), generator);
-        std::shuffle(std::begin(msurn), std::end(msurn), generator);
-        std::shuffle(std::begin(fname), std::end(fname), generator);
-        std::shuffle(std::begin(fsurn), std::end(fsurn), generator);
+        shuffle(begin(mname), end(mname), generator);
+        shuffle(begin(msurn), end(msurn), generator);
+        shuffle(begin(fname), end(fname), generator);
+        shuffle(begin(fsurn), end(fsurn), generator);
         int rand = distribution(generator);
         if (rand == 0) {
             for (size_t i = 0; i < 1; i += 2)

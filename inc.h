@@ -24,7 +24,10 @@ using std::sort;
 using std::setw;
 using std::left;
 using std::accumulate;	//sudeda (sukaupia) visus elementus vektoriuje
+using std::random_device;
+using std::default_random_engine;
+using std::uniform_int_distribution;
 
 using std::ifstream;
 using std::ofstream;
-using std::ostream; //tik testavimui tikrinant vektoriu elementus
+//using std::ostream; //tik testavimui tikrinant vektoriu elementus
