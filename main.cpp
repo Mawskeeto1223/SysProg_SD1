@@ -2,7 +2,7 @@
 #include "student.h"
 
 void generateList();
-void createList();
+void createManualList();
 
 /*
 template <typename S>
@@ -25,7 +25,7 @@ int main()
     char id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
 
     if (id == '1') {
-        createList();
+        createManualList();
     } else if (id == '2') {
         generateList();
     } else {
@@ -34,15 +34,16 @@ int main()
     return 0;
 }
 //-----------------------------------------------------------------------------------------------------------------
-void createList() {
+void createManualList() {
     system("cls");
-    vector<Student> mas;
+    
     ofstream SOutput("surasytas_studentu_sarasas.txt");
 
     //cout << "Iveskite studentu skaiciu: ";
     int /*n,*/ m; char kl = 'y';
     //cin >> n; cout << "\n";
 
+    vector<Student> mas;
     string var, pav; vector<int> temp; int egz;
 
     while (kl == 'y' || kl == 'Y') {
@@ -77,7 +78,10 @@ void createList() {
         SOutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
     SOutput.close();
-    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m";
+    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n";
+    cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+    int e = _getch();
+    main();
 }
 //-----------------------------------------------------------------------------------------------------------------
 void generateList() {
