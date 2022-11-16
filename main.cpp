@@ -21,7 +21,7 @@ int main()
     cout << "Pasirinkite norima veiksma nuspausdami tam tikra skaiciu:\n";
     cout << "1. Sudaryti studentu sarasa\n";
     cout << "2. Sugeneruoti atsitiktinius studentu sarasus\n";
-    cout << "\nSpustelekite bet koki klavisa, kad iseiti is programos\n";
+    cout << "\nSpustelekite bet koki klavisa, kad iseiti is programos.\n";
     char id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
 
     if (id == '1') {
@@ -77,6 +77,7 @@ void createList() {
         SOutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
     SOutput.close();
+    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m";
 }
 //-----------------------------------------------------------------------------------------------------------------
 void generateList() {
@@ -180,6 +181,15 @@ void generateList() {
         }
         varg.close();
         kiet.close();
-        cout << "Baigta.\n";
+        cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
+        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
+        cout << "Baigta.\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+        int e = _getch();
+        main();
+    }
+    else {
+        cout << "Programa negali pradeti sio darbo. Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.\n";
+        int e = _getch();
+        main();
     }
 }
