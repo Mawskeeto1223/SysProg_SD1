@@ -12,6 +12,7 @@ vector <Student> mas;
 int main()
 {
     system("cls");
+    flushContainers();
     cout << "Pasirinkite norima veiksma nuspausdami tam tikra skaiciu:\n";
     cout << "1. Sudaryti studentu sarasa\n";
     cout << "2. Sugeneruoti atsitiktinius studentu sarasus\n";
@@ -38,7 +39,7 @@ void checkManualList() {
         char idc = _getch();
         if (idc == 'n') { main(); }
         else if (idc == 'y') { createManualList(); }
-        else { checkManualList(); } //this is extremely dumb
+        else { checkManualList(); } //i feel like this is extremely dumb but im really running out of time
     } else {
         createManualList();
     }
@@ -89,7 +90,6 @@ void createManualList() {
     SOutput.close();
     cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n\n";
     cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
-    flushContainers();
     int e = _getch();
     main();
 }
@@ -199,7 +199,6 @@ void generateList() {
         cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
         cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
         cout << "Baigta.\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
-        flushContainers();
         int e = _getch();
         main();
     } else {
