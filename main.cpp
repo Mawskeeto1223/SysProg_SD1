@@ -4,7 +4,7 @@
 void createManualList();    //studentu saraso kurimas
 void checkManualList();     //tikrina ar jau egzistuoja sudarytas studentu sarasas
 void generateList();        //sugeneruoja visiskai atsitiktinius studentu sarasus
-void flushContainers();        //
+void flushContainers();     //
 
 vector <string> name, surn, fname, mname, fsurn, msurn;
 vector <Student> mas;
@@ -33,9 +33,9 @@ void checkManualList() {
     system("cls");
     fstream SOutput;
 
-    SOutput.open("surasytas_studentu_sarasas.txt");
+    SOutput.open("output/student_list.txt");
     if (SOutput.is_open()) {
-        cout << "Demesio!\nEgzistuojantis ranka surasytas studentu sarasas ('surasytas_studentu_sarasas.txt') bus perrasytas!\nAr norite testi? (y/n):\n";
+        cout << "Demesio!\n\nEgzistuojantis ranka surasytas studentu sarasas ('output/student_list.txt') bus perrasytas!\nAr norite testi? (y/n):\n";
         char idc = _getch();
         if (idc == 'n') { main(); }
         else if (idc == 'y') { createManualList(); }
@@ -48,7 +48,7 @@ void checkManualList() {
 void createManualList() {
     system("cls");
     
-    ofstream SOutput("surasytas_studentu_sarasas.txt");
+    ofstream SOutput("output/student_list.txt");
 
     //cout << "Iveskite studentu skaiciu: ";
     int /*n,*/ m; char kl = 'y';
@@ -99,14 +99,14 @@ void generateList() {
 
     // overkomplikuotas sprendimas, pasitelkiantis "vaizdingus" vardus ir pavardes is 2 duomenu failu, vietoj Vardas1 Pavarde1.
 
-    ifstream names("vardai.txt");
-    ifstream surnames("pavardes.txt");
+    ifstream names("data/names.txt");
+    ifstream surnames("data/surnames.txt");
     bool fail = false;
 
     //exceptionai, spausdinam grazia raudona spalva
     try {
         if (names.fail()) {
-            throw "\x1B[31mNerastas vardu sarasas! (truksta 'vardai.txt')\033[0m";
+            throw "\x1B[31mNerastas vardu sarasas! (truksta 'data/names.txt')\033[0m";
         }
     } catch (const char* msg) {
         cerr << msg << endl;
@@ -115,7 +115,7 @@ void generateList() {
 
     try {
         if (surnames.fail()) {
-            throw "\x1B[31mNerastas pavardziu sarasas! (truksta 'pavardes.txt')\033[0m";
+            throw "\x1B[31mNerastas pavardziu sarasas! (truksta 'data/surnames.txt')\033[0m";
         }
     } catch (const char* msg) {
         cerr << msg << endl;
@@ -147,8 +147,8 @@ void generateList() {
             }
         }
 
-        ofstream varg("sugeneruoti_vargsiukai.txt");
-        ofstream kiet("sugeneruoti_kietuoliai.txt");
+        ofstream varg("output/sugeneruoti_vargsiukai.txt");
+        ofstream kiet("output/sugeneruoti_kietuoliai.txt");
         int amount;
         cout << "Iveskite studentu kieki:\n";
         cin >> amount;
