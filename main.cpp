@@ -1,8 +1,10 @@
 #include "inc.h"
 #include "student.h"
 
-void generateList();
 void createManualList();
+void checkManualList();
+void generateList();
+
 
 /*
 template <typename S>
@@ -25,13 +27,29 @@ int main()
     char id = _getch();  //#include <conio.h>, laukiam vartotojo mygtuko nuspaudimo
 
     if (id == '1') {
-        createManualList();
+        checkManualList();
     } else if (id == '2') {
         generateList();
     } else {
         cout << "Iseinama...\n";
     }
     return 0;
+}
+//-----------------------------------------------------------------------------------------------------------------
+void checkManualList() {
+    system("cls");
+    fstream SOutput;
+
+    SOutput.open("surasytas_studentu_sarasas.txt");
+    if (SOutput.is_open()) {
+        cout << "Demesio!\nEgzistuojantis ranka surasytas studentu sarasas ('surasytas_studentu_sarasas.txt') bus perrasytas!\nAr norite testi? (y/n):\n";
+        char idc = _getch();
+        if (idc == 'n') { main(); }
+        else if (idc == 'y') { createManualList(); }
+        else { checkManualList(); } //this is extremely dumb
+    } else {
+        createManualList();
+    }
 }
 //-----------------------------------------------------------------------------------------------------------------
 void createManualList() {
@@ -190,8 +208,7 @@ void generateList() {
         cout << "Baigta.\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
         int e = _getch();
         main();
-    }
-    else {
+    } else {
         cout << "Programa negali pradeti sio darbo. Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.\n";
         int e = _getch();
         main();
