@@ -36,4 +36,4 @@ using std::cerr;
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
-//using std::ostream; //tik testavimui tikrinant vektoriu elementus
+using std::ostream; //tik testavimui tikrinant vektoriu elementus

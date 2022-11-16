@@ -4,19 +4,7 @@
 void createManualList();    //studentu saraso kurimas
 void checkManualList();     //tikrina ar jau egzistuoja sudarytas studentu sarasas
 void generateList();        //sugeneruoja visiskai atsitiktinius studentu sarasus
-void flushVectors();        //
-
-
-/*
-template <typename S>
-ostream& operator<<(ostream& os, const vector<S>& vector) {
-    //spausdinam vektoriu elementus su cout <<, skirtas testavimui.
-    for (auto element : vector) {
-        os << element << " ";
-    }
-    return os;
-}
-*/
+void flushContainers();        //
 
 vector <string> name, surn, fname, mname, fsurn, msurn;
 vector <Student> mas;
@@ -101,7 +89,7 @@ void createManualList() {
     SOutput.close();
     cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n\n";
     cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
-    flushVectors();
+    flushContainers();
     int e = _getch();
     main();
 }
@@ -209,9 +197,9 @@ void generateList() {
         varg.close();
         kiet.close();
         cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
-        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n\n";
-        cout << "Baigta.\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
-        flushVectors();
+        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
+        cout << "Baigta.\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+        flushContainers();
         int e = _getch();
         main();
     } else {
@@ -221,7 +209,7 @@ void generateList() {
     }
 }
 
-void flushVectors() {
+void flushContainers() {
     name.clear();
     surn.clear();
     mname.clear();

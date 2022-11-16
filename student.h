@@ -108,3 +108,12 @@ double getMedian(vector<int> median) {  //medianos algoritmas
         return median[size / 2];
     }
 }
+/*
+template <typename S>
+ostream& operator<<(ostream& os, const vector<S>& vector) {
+    //spausdinam vektoriu elementus su cout <<, skirtas testavimui.
+    for (auto element : vector) {
+        os << element << " ";
+    }
+    return os;
+}*/
