@@ -4,6 +4,7 @@
 void createManualList();
 void checkManualList();
 void generateList();
+void flushVectors();
 
 
 /*
@@ -16,6 +17,9 @@ ostream& operator<<(ostream& os, const vector<S>& vector) {
     return os;
 }
 */
+
+vector <string> name, surn, fname, mname, fsurn, msurn;
+vector <Student> mas;
 
 int main()
 {
@@ -61,7 +65,6 @@ void createManualList() {
     int /*n,*/ m; char kl = 'y';
     //cin >> n; cout << "\n";
 
-    vector<Student> mas;
     string var, pav; vector<int> temp; int egz;
 
     while (kl == 'y' || kl == 'Y') {
@@ -98,6 +101,7 @@ void createManualList() {
     SOutput.close();
     cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n";
     cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+    flushVectors();
     int e = _getch();
     main();
 }
@@ -111,6 +115,7 @@ void generateList() {
     ifstream surnames("pavardes.txt");
     bool fail = false;
 
+    //exceptionai, spausdinam grazia raudona spalva
     try {
         if (names.fail()) {
             throw "\x1B[31mNerastas vardu sarasas! (truksta 'vardai.txt')\033[0m";
@@ -130,7 +135,7 @@ void generateList() {
     }
 
     if (!fail) {
-        vector <string> name, surn, fname, mname, fsurn, msurn;
+        
         bool gender;
 
         string x, d;
@@ -206,6 +211,7 @@ void generateList() {
         cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
         cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
         cout << "Baigta.\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
+        flushVectors();
         int e = _getch();
         main();
     } else {
@@ -213,4 +219,14 @@ void generateList() {
         int e = _getch();
         main();
     }
+}
+
+void flushVectors() {
+    name.clear();
+    surn.clear();
+    mname.clear();
+    msurn.clear();
+    fname.clear();
+    fsurn.clear();
+    mas.clear();
 }
