@@ -1,10 +1,10 @@
 #include "inc.h"
 #include "student.h"
 
-void createManualList();
-void checkManualList();
-void generateList();
-void flushVectors();
+void createManualList();    //studentu saraso kurimas
+void checkManualList();     //tikrina ar jau egzistuoja sudarytas studentu sarasas
+void generateList();        //sugeneruoja visiskai atsitiktinius studentu sarasus
+void flushVectors();        //
 
 
 /*
@@ -99,7 +99,7 @@ void createManualList() {
         SOutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
     SOutput.close();
-    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n";
+    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n\n";
     cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
     flushVectors();
     int e = _getch();
@@ -209,13 +209,13 @@ void generateList() {
         varg.close();
         kiet.close();
         cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
-        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
+        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n\n";
         cout << "Baigta.\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
         flushVectors();
         int e = _getch();
         main();
     } else {
-        cout << "Programa negali pradeti sio darbo. Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.\n";
+        cout << "\nPrograma negali pradeti sio darbo. Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.\n";
         int e = _getch();
         main();
     }
