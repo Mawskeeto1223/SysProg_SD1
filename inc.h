@@ -1,5 +1,3 @@
-//mandatory to do it like this, according to the professor :/
-
 #pragma once
 #include <iostream>
 #include <string>
@@ -11,10 +9,13 @@
 #include <limits>
 #include <fstream>
 #include <random>
-//#include <cstdlib>
+#include <filesystem>
+#include <cstdlib>
 //#include <functional>
 //#include <set>
 #include <conio.h> //_getch();	//
+
+//the task says we can only use all the required stuff like this btw, please don't screech at me
 
 using std::cout;
 using std::endl;

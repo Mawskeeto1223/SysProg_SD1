@@ -1,4 +1,4 @@
-#include "inc.h"
+﻿#include "inc.h"
 #include "student.h"
 
 void createManualList();    //studentu saraso kurimas
@@ -6,9 +6,12 @@ void checkManualList();     //tikrina ar jau egzistuoja sudarytas studentu saras
 void generateList();        //sugeneruoja visiskai atsitiktinius studentu sarasus
 void flushContainers();     //
 
+
 vector <string> name, surn, fname, mname, fsurn, msurn;
 vector <Student> mas;
 
+// apparently the task also requires me to have both vectors and arrays for the same job but i ain doin that nahhhhhhhhhh i already despise everything i do here
+//-----------------------------------------------------------------------------------------------------------------
 int main()
 {
     system("cls");
@@ -48,6 +51,7 @@ void checkManualList() {
 void createManualList() {
     system("cls");
     
+    std::system("mkdir output");        //1 hour left to deadline, cant elaborate
     ofstream SOutput("output/student_list.txt");
 
     //cout << "Iveskite studentu skaiciu: ";
@@ -88,7 +92,7 @@ void createManualList() {
         SOutput << setw(20) << left << laik.getName() << setw(25) << left << laik.getSurname() << setw(30) << left << fixed << setprecision(2) << getAverage(laik.getNd()) << setw(20) << left << getMedian(laik.getNd()) << "\n";
     }
     SOutput.close();
-    cout << "\x1B[32mSarasas issaugotas i 'surasytas_studentu_sarasas.txt' programos aplankale.\033[0m\n\n";
+    cout << "\x1B[32mSarasas issaugotas i 'output/student_list.txt' programos aplankale.\033[0m\n\n";
     cout << "Spustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
     int e = _getch();
     main();
@@ -103,7 +107,7 @@ void generateList() {
     ifstream surnames("data/surnames.txt");
     bool fail = false;
 
-    //exceptionai, spausdinam grazia raudona spalva
+    //exceptionai, spausdinam grazia raudona spalva :)
     try {
         if (names.fail()) {
             throw "\x1B[31mNerastas vardu sarasas! (truksta 'data/names.txt')\033[0m";
