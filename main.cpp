@@ -51,7 +51,7 @@ void checkManualList() {
 void createManualList() {
     system("cls");
     
-    std::system("mkdir output");        //1 hour left to deadline, wont make it better
+    std::system("mkdir output");        //1 hour left to deadline
     ofstream SOutput("output/student_list.txt");
 
     //cout << "Iveskite studentu skaiciu: ";
