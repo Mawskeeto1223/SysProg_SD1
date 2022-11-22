@@ -150,7 +150,7 @@ void generateList() {
                 fsurn.push_back(d);     //moterisku "pavardziu" vektorius
             }
         }
-
+        std::system("mkdir output");
         ofstream varg("output/sugeneruoti_vargsiukai.txt");
         ofstream kiet("output/sugeneruoti_kietuoliai.txt");
         int amount;
@@ -200,8 +200,8 @@ void generateList() {
         }
         varg.close();
         kiet.close();
-        cout << "\x1B[32mKietuoliu sarasas issaugotas i 'sugeneruoti_kietuoliai.txt'\033[0m\n";
-        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'sugeneruoti_vargsiukai.txt'\033[0m\n";
+        cout << "\x1B[32mKietuoliu sarasas issaugotas i 'output/sugeneruoti_kietuoliai.txt'\033[0m\n";
+        cout << "\x1B[32mVargsiuku sarasas issaugotas i 'output/sugeneruoti_vargsiukai.txt'\033[0m\n";
         cout << "Baigta.\n\nSpustelekite bet koki klavisa, kad grizti i pagrindini meniu.";
         int e = _getch();
         main();
